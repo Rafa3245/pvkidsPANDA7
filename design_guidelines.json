@@ -1,0 +1,179 @@
+{
+  "theme": "light",
+  "archetype": "6_vibrant_play_mixed_with_3_pastel_soft",
+  "domain": "children_education_sales_page",
+  "design_philosophy": {
+    "core_emotion": "Joyful, Educational, Premium Trust",
+    "primary_objective": "High-conversion sales page for parents seeking a 30-day literacy solution for their children.",
+    "visual_direction": "Soft lavender/blue pastel gradients, vibrant and joyful character moments (Panda), rainbow typography accents, and highly trustworthy, high-contrast green CTA buttons for direct response conversion."
+  },
+  "colors": {
+    "background": {
+      "base": "#F5F3FF",
+      "gradient_start": "#EEF2FF",
+      "gradient_end": "#FAF5FF",
+      "card": "#FFFFFF"
+    },
+    "typography": {
+      "primary": "#1E1B4B",
+      "secondary": "#4338CA",
+      "muted": "#64748B",
+      "rainbow_gradient": "bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent"
+    },
+    "interactive": {
+      "primary_cta": "#16A34A",
+      "primary_cta_hover": "#15803D",
+      "primary_cta_ring": "#86EFAC",
+      "secondary_accent": "#F59E0B",
+      "tertiary_accent": "#EC4899"
+    },
+    "borders": {
+      "subtle": "#E0E7FF",
+      "focus": "#818CF8"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Nunito, sans-serif",
+      "body": "Figtree, sans-serif"
+    },
+    "scales": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-bold",
+      "body_lg": "text-lg md:text-xl font-medium leading-relaxed",
+      "body": "text-base font-medium leading-relaxed",
+      "small": "text-sm font-semibold tracking-wide uppercase"
+    }
+  },
+  "layout_and_spacing": {
+    "container_padding": "px-4 sm:px-6 lg:px-8",
+    "section_spacing": "py-16 sm:py-24 lg:py-32",
+    "card_padding": "p-6 sm:p-8 lg:p-10",
+    "gap_system": {
+      "tight": "gap-4",
+      "standard": "gap-8",
+      "loose": "gap-12 lg:gap-16"
+    },
+    "border_radius": {
+      "button": "rounded-full",
+      "card": "rounded-3xl",
+      "image": "rounded-2xl"
+    }
+  },
+  "shadows_and_surfaces": {
+    "card_base": "shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-indigo-50",
+    "card_hover": "shadow-[0_20px_40px_rgb(0,0,0,0.08)] border-indigo-100 -translate-y-1 transition-all duration-300",
+    "glass_header": "bg-white/80 backdrop-blur-xl border-b border-indigo-50/50",
+    "highlight_card": "bg-gradient-to-br from-indigo-50 to-purple-50 border border-purple-100"
+  },
+  "motion_and_interactions": {
+    "cta_button": "hover:scale-105 active:scale-95 transition-transform duration-200 shadow-[0_0_20px_rgba(22,163,74,0.3)] hover:shadow-[0_0_30px_rgba(22,163,74,0.5)]",
+    "bento_cards": "hover:-translate-y-1 hover:shadow-xl transition-all duration-300",
+    "floating_elements": "animate-bounce-slow (custom keyframe for gentle vertical float 3s ease-in-out infinite)"
+  },
+  "media_assets": {
+    "multi_device_showcase": {
+      "url": "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/4ca8sfxf_LOGO%20PV%202%20TELA%20LOGIN.png",
+      "description": "Multi-device presentation of the Alfakids platform",
+      "placement": "Hero section or Platform Showcase section"
+    },
+    "alfasonoro_main_art": {
+      "url": "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/2bzjxipo_Whisk_ed55bae0e7213e9bff142f245155be27eg.png",
+      "description": "Alfasonoro brand art, rainbow logo and Panda mascot with glasses and red bow tie",
+      "placement": "Hero Section primary visual or About Method section"
+    },
+    "eight_stimuli_infographic": {
+      "url": "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/njv2c6yp_Whisk_cf6cda1e44d947b867844120b01b9a0adr.png",
+      "description": "The 8 pillars of the Alfasonoro method infographic",
+      "placement": "Methodology / How it works section"
+    },
+    "before_after_transformation": {
+      "url": "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/40c1qpfr_P%2010.png",
+      "description": "Before and After transformation illustration of a child learning",
+      "placement": "Transformation / Value Proposition section"
+    },
+    "reference_style_testimonials": {
+      "url": "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/l6bgv64m_Whisk_908b7825645cf5f90f94f12b64a8f732eg.png",
+      "description": "Reference for styling the testimonial video thumbnails and green CTA button layout",
+      "placement": "Do not display directly, use as structural/CSS reference for the Social Proof section"
+    },
+    "lifestyle_parent_child": {
+      "url": "https://images.unsplash.com/photo-1758598738092-a7cd486baadd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxjaGlsZCUyMGxlYXJuaW5nJTIwdGFibGV0JTIwaGFwcHklMjBtb3RoZXJ8ZW58MHx8fHwxNzc3MzU3MDQzfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Mother and daughter looking at laptop together",
+      "placement": "Testimonial background or emotional connection section"
+    }
+  },
+  "page_structure": [
+    {
+      "section": "Sticky Header",
+      "elements": ["Logo (Text or Image)", "Main CTA 'Acessar Agora'"],
+      "design_rules": "Glassmorphism header `backdrop-blur-md bg-white/80`. Stays out of the way but always keeps the checkout accessible."
+    },
+    {
+      "section": "Hero",
+      "elements": ["Headline", "Subheadline", "Primary CTA", "Trust Badges", "Main Art (Alfasonoro Panda)"],
+      "design_rules": "Generous `py-20`, soft lavender gradient background `bg-gradient-to-br from-[#F5F3FF] via-[#EEF2FF] to-[#FAF5FF]`. Headline should use `text-5xl` with a rainbow text highlight on the word 'Alfabetização'. Huge Green CTA pulsing. Show `alfasonoro_main_art` as the hero image."
+    },
+    {
+      "section": "The Problem & Transformation (Antes/Depois)",
+      "elements": ["Relatable Parent Pain Point text", "Before & After Image", "Supporting copy"],
+      "design_rules": "Use `before_after_transformation` image. Background pure white. High contrast text. Focus on emotional storytelling."
+    },
+    {
+      "section": "Methodology (Os 8 Estímulos)",
+      "elements": ["Section Title", "8 Stimuli Image", "Explanatory text"],
+      "design_rules": "Darker pastel block (e.g., `bg-indigo-50`) to create section separation. Center the `eight_stimuli_infographic`. Add subtle float animation."
+    },
+    {
+      "section": "Modules (Bento Grid Layout)",
+      "elements": [
+        "Módulo 1: Videoaulas do Panda",
+        "Módulo 2: Programa 30 Dias",
+        "Módulo 3: Biblioteca de Vídeos (+100)",
+        "Módulo 4: Aprender em Inglês",
+        "Módulo 5: Recursos Pedagógicos & IA"
+      ],
+      "design_rules": "Bento Grid layout (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3`). Card style `rounded-3xl bg-white shadow-sm border border-indigo-50`. Use playful icons (Lucide/Phosphor) in vibrant colors for each module. Module 1 and 2 should span more columns if possible to emphasize importance."
+    },
+    {
+      "section": "Platform Showcase",
+      "elements": ["Multi-device image", "Features bullet points", "Secondary CTA"],
+      "design_rules": "Use `multi_device_showcase`. Show that it works on TV, Laptop, and Phone. Align left text, right image."
+    },
+    {
+      "section": "Bonuses & Extras",
+      "elements": ["Bônus 1: Alimentação Saudável", "Bônus 2: Pintura Inteligente com IA"],
+      "design_rules": "Cards with a special highlight, maybe a subtle gold or pink gradient border to indicate 'FREE/BONUS' value."
+    },
+    {
+      "section": "Social Proof (Testimonials)",
+      "elements": ["Video thumbnail placeholders", "Parent Quotes", "Lifestyle Parent Image"],
+      "design_rules": "Emulate the requested 'Reference competitor sales page style' (green CTA buttons, testimonial video cards). Use `lifestyle_parent_child` as an emotional anchor nearby."
+    },
+    {
+      "section": "Pricing & Guarantee",
+      "elements": ["Value Anchoring", "Final Price (R$ 37)", "Checkout CTA", "Guarantee Badge (7 days)"],
+      "design_rules": "The ultimate conversion zone. Massive Green CTA. Text 'R$ 37' in `text-6xl font-black text-indigo-950`. Trust signals everywhere (padlock icon, safe checkout text). Direct link to Cakto checkout."
+    },
+    {
+      "section": "FAQ",
+      "elements": ["Accordion with common questions"],
+      "design_rules": "Clean, simple, easily readable. `bg-white`."
+    }
+  ],
+  "accessibility_and_testing": {
+    "data_testid_convention": "All buttons, links, form inputs, menus, error messages, and user balances MUST include `data-testid` in kebab-case representing their role. Examples: `data-testid='hero-cta-button'`, `data-testid='pricing-checkout-button'`.",
+    "contrast": "Ensure text over gradients uses shadows or dark enough hues to meet APCA contrast ratios."
+  },
+  "instructions_to_main_agent": [
+    "Build a single-page React app (Landing Page/Sales Page) using Tailwind CSS and the provided Shadcn/UI primitives if applicable, otherwise use pure HTML/Tailwind for maximum layout flexibility.",
+    "Do not use Shadcn 'Card' or 'Section' components if they restrict creative layouts. Build bento grids with raw `div`s.",
+    "Ensure the green CTA buttons (`bg-green-600 hover:bg-green-700`) are prominent, large (`py-4 px-8 text-xl`), and rounded-full. Link all main CTAs to the Cakto checkout: https://pay.cakto.com.br/aw2hie4_853925",
+    "Load 'Nunito' and 'Figtree' fonts via Google Fonts in the main index.html/CSS.",
+    "Implement the background using pure Tailwind CSS gradients (e.g., `bg-gradient-to-br from-[#F5F3FF] via-[#EEF2FF] to-[#FAF5FF]`) to mimic a soft lavender sparkle environment.",
+    "Place the exact URLs provided in 'media_assets' straight into the `src` attributes of images. DO NOT use placeholder services.",
+    "Maintain high-end padding and whitespace. Elements should not be cramped.",
+    "Use Lucide-react or Phosphor icons for bullet points and module cards (checkmarks, play buttons, books, stars)."
+  ]
+}
