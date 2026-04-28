@@ -6,7 +6,6 @@ import {
     Music,
     Palette,
     Globe2,
-    GraduationCap,
     Star,
     ShieldCheck,
     Lock,
@@ -16,7 +15,6 @@ import {
     Zap,
     Heart,
     Gift,
-    Award,
     Timer,
     Volume2,
     Brain,
@@ -31,12 +29,12 @@ import {
 const CHECKOUT_URL = "https://pay.cakto.com.br/aw2hie4_853925";
 
 const ASSETS = {
+    logo:
+        "https://customer-assets.emergentagent.com/job_alfakids-fonica/artifacts/kqm4x1bw_logo%20fundo.png",
     mainArt:
         "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/2bzjxipo_Whisk_ed55bae0e7213e9bff142f245155be27eg.png",
     eightStimuli:
         "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/njv2c6yp_Whisk_cf6cda1e44d947b867844120b01b9a0adr.png",
-    beforeAfter:
-        "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/40c1qpfr_P%2010.png",
     multiDevice:
         "https://customer-assets.emergentagent.com/job_17097804-122b-4a92-87b7-164651faf587/artifacts/4ca8sfxf_LOGO%20PV%202%20TELA%20LOGIN.png",
 };
@@ -66,15 +64,14 @@ const Header = () => (
         data-testid="sticky-header"
         className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-indigo-100/60"
     >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-            <div className="flex items-center gap-2" data-testid="brand-logo">
-                <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-md">
-                    <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <span className="font-black text-lg text-indigo-950 tracking-tight">
-                    Alfa<span className="text-purple-600">kids</span>
-                </span>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="#top" className="flex items-center" data-testid="brand-logo">
+                <img
+                    src={ASSETS.logo}
+                    alt="Alfakids"
+                    className="h-12 md:h-14 w-auto object-contain"
+                />
+            </a>
             <CtaButton testid="header-cta" size="sm" pulse={false}>
                 Quero agora
             </CtaButton>
@@ -85,9 +82,23 @@ const Header = () => (
 /* ---------- Hero ---------- */
 const Hero = () => (
     <section
+        id="top"
         data-testid="hero-section"
         className="relative pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden sparkle-bg"
     >
+        {/* Centered brand logo */}
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center mb-10 md:mb-14">
+            <div className="relative">
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-purple-300/30 via-pink-200/30 to-indigo-300/30 blur-2xl -z-10" />
+                <img
+                    src={ASSETS.logo}
+                    alt="Alfakids"
+                    data-testid="brand-logo-hero"
+                    className="w-64 sm:w-80 md:w-96 h-auto drop-shadow-[0_20px_40px_rgba(99,102,241,0.25)] float-slow"
+                />
+            </div>
+        </div>
+
         {/* Decorative sparkles */}
         <Sparkles className="absolute top-28 left-8 w-6 h-6 text-purple-400 sparkle" />
         <Sparkles
@@ -236,58 +247,135 @@ const Hero = () => (
 );
 
 /* ---------- Antes/Depois Problem Transformation ---------- */
-const Transformation = () => (
-    <section
-        data-testid="transformation-section"
-        className="py-20 md:py-28 bg-white relative"
-    >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-                <p className="text-xs md:text-sm font-black uppercase tracking-widest text-purple-600 mb-3">
-                    Você reconhece essa cena?
-                </p>
-                <h2
-                    data-testid="transformation-headline"
-                    className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-950 leading-tight"
-                >
-                    Do choro na hora da tarefa{" "}
-                    <span className="rainbow-text">ao sorriso</span> ao ler sozinho.
-                </h2>
-                <p className="mt-5 text-lg text-indigo-900/70 font-medium">
-                    Muitos pais passam noites ansiosos vendo o filho travar em palavras
-                    simples — e ficando para trás na escola. Com o Alfasonoro, em
-                    semanas, essa história muda.
-                </p>
-            </div>
+const Transformation = () => {
+    const antes = [
+        "Trava ao ler palavras simples e perde a paciência",
+        "Resiste a abrir o caderno — vira briga todo dia",
+        "Fica para trás na escola e perde confiança",
+        "Passa tempo na tela sem aprender nada",
+    ];
+    const depois = [
+        "Junta letras e sílabas sozinho, com orgulho",
+        "Pede para estudar com o Panda todo dia",
+        "Vai para a escola na frente dos coleguinhas",
+        "Usa a tela de forma produtiva e divertida",
+    ];
 
-            <div className="grid md:grid-cols-5 gap-6 items-center">
-                <div className="md:col-span-3">
-                    <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-indigo-100">
-                        <img
-                            src={ASSETS.beforeAfter}
-                            alt="Antes e depois Alfakids"
-                            className="w-full h-auto"
-                            data-testid="before-after-image"
-                        />
+    return (
+        <section
+            data-testid="transformation-section"
+            className="py-20 md:py-28 bg-white relative"
+        >
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto mb-14">
+                    <p className="text-xs md:text-sm font-black uppercase tracking-widest text-purple-600 mb-3">
+                        Você reconhece essa cena?
+                    </p>
+                    <h2
+                        data-testid="transformation-headline"
+                        className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-950 leading-tight"
+                    >
+                        Do choro na hora da tarefa{" "}
+                        <span className="rainbow-text">ao sorriso</span> ao ler
+                        sozinho.
+                    </h2>
+                    <p className="mt-5 text-lg text-indigo-900/70 font-medium">
+                        Muitos pais passam noites ansiosos vendo o filho travar em
+                        palavras simples. Com o Alfasonoro, em semanas, essa história
+                        muda de verdade.
+                    </p>
+                </div>
+
+                {/* Antes / Depois cards */}
+                <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+                    {/* ANTES */}
+                    <div
+                        data-testid="transformation-before"
+                        className="relative rounded-3xl bg-gradient-to-br from-red-50 via-rose-50 to-orange-50 border border-red-100 p-7 md:p-9 shadow-sm"
+                    >
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-100 border border-red-200 mb-5">
+                            <span className="w-2 h-2 rounded-full bg-red-500" />
+                            <span className="text-xs font-black uppercase tracking-widest text-red-700">
+                                Antes do Alfasonoro
+                            </span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-black text-indigo-950 mb-5">
+                            A rotina trava toda noite.
+                        </h3>
+                        <ul className="space-y-3">
+                            {antes.map((t, i) => (
+                                <li
+                                    key={i}
+                                    data-testid={`before-item-${i}`}
+                                    className="flex items-start gap-3"
+                                >
+                                    <span className="mt-1 w-6 h-6 rounded-full bg-red-500/90 flex items-center justify-center shrink-0 text-white font-black text-xs">
+                                        ✕
+                                    </span>
+                                    <span className="text-indigo-950/90 font-semibold text-sm md:text-base">
+                                        {t}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* DEPOIS */}
+                    <div
+                        data-testid="transformation-after"
+                        className="relative rounded-3xl bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-2 border-green-200 p-7 md:p-9 shadow-xl"
+                    >
+                        <div className="absolute -top-3 right-6 bg-green-600 text-white text-xs font-black uppercase px-3 py-1.5 rounded-full shadow-lg">
+                            ⭐ Resultado
+                        </div>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 border border-green-200 mb-5">
+                            <span className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
+                            <span className="text-xs font-black uppercase tracking-widest text-green-700">
+                                Depois do Alfasonoro
+                            </span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-black text-indigo-950 mb-5">
+                            Tudo leve, todo dia.
+                        </h3>
+                        <ul className="space-y-3">
+                            {depois.map((t, i) => (
+                                <li
+                                    key={i}
+                                    data-testid={`after-item-${i}`}
+                                    className="flex items-start gap-3"
+                                >
+                                    <span className="mt-1 w-6 h-6 rounded-full bg-green-600 flex items-center justify-center shrink-0 shadow-sm">
+                                        <Check
+                                            className="w-4 h-4 text-white"
+                                            strokeWidth={3}
+                                        />
+                                    </span>
+                                    <span className="text-indigo-950 font-semibold text-sm md:text-base">
+                                        {t}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
-                <div className="md:col-span-2 space-y-4">
+                {/* 3 benefit pillars */}
+                <div className="mt-12 grid md:grid-cols-3 gap-5">
                     {[
                         {
-                            icon: <Smile className="w-5 h-5" />,
+                            icon: <Smile className="w-6 h-6" />,
                             label: "Aprende brincando",
                             desc: "Vídeos animados, músicas e jogos eliminam a resistência.",
                             color: "bg-pink-100 text-pink-700",
                         },
                         {
-                            icon: <Brain className="w-5 h-5" />,
+                            icon: <Brain className="w-6 h-6" />,
                             label: "Memória que fixa",
                             desc: "Som + imagem + repetição ativam 8 áreas do cérebro.",
                             color: "bg-purple-100 text-purple-700",
                         },
                         {
-                            icon: <Heart className="w-5 h-5" />,
+                            icon: <Heart className="w-6 h-6" />,
                             label: "Vínculo em casa",
                             desc: "Você vira o herói do momento de aprender.",
                             color: "bg-red-100 text-red-700",
@@ -296,16 +384,18 @@ const Transformation = () => (
                         <div
                             key={i}
                             data-testid={`transformation-point-${i}`}
-                            className="flex gap-4 p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100"
+                            className="flex gap-4 p-6 rounded-2xl bg-indigo-50/60 border border-indigo-100 hover:-translate-y-1 transition-all"
                         >
                             <div
-                                className={`w-10 h-10 rounded-xl ${b.color} flex items-center justify-center shrink-0`}
+                                className={`w-11 h-11 rounded-xl ${b.color} flex items-center justify-center shrink-0`}
                             >
                                 {b.icon}
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-indigo-950">{b.label}</h3>
-                                <p className="text-sm text-indigo-900/70 font-medium">
+                                <h3 className="font-extrabold text-indigo-950">
+                                    {b.label}
+                                </h3>
+                                <p className="text-sm text-indigo-900/70 font-medium mt-1">
                                     {b.desc}
                                 </p>
                             </div>
@@ -313,9 +403,9 @@ const Transformation = () => (
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 /* ---------- Methodology — 8 Estímulos ---------- */
 const Methodology = () => {
@@ -1008,15 +1098,14 @@ const FinalCta = () => (
 const Footer = () => (
     <footer data-testid="footer" className="bg-indigo-950 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                    <GraduationCap className="w-5 h-5 text-white" />
-                </div>
+            <div className="flex items-center gap-4">
+                <img
+                    src={ASSETS.logo}
+                    alt="Alfakids"
+                    className="h-14 w-auto object-contain bg-white/5 rounded-2xl p-1.5"
+                />
                 <div>
-                    <p className="font-black text-lg">
-                        Alfa<span className="text-purple-300">kids</span>
-                    </p>
-                    <p className="text-xs text-indigo-300">
+                    <p className="text-xs text-indigo-300 max-w-xs">
                         Método Alfasonoro™ • Alfabetizando com o Panda
                     </p>
                 </div>
