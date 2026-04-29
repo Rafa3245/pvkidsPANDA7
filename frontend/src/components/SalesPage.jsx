@@ -52,14 +52,11 @@ const ASSETS = {
 };
 
 const VIDEOS = {
-    access:
-        "https://customer-assets.emergentagent.com/job_alfakids-fonica/artifacts/weo06j44_IMG_9455.MOV",
-    testimonial:
-        "https://customer-assets.emergentagent.com/job_alfakids-fonica/artifacts/p568hj7k_DEPOIMENTO.MOV",
+    access: "/videos/access.mp4",
+    testimonial: "/videos/testimonial.mp4",
     childReading:
         "https://customer-assets.emergentagent.com/job_alfakids-fonica/artifacts/6s4gfwy3_Leitores%20Implac%C3%A1veis%202.mp4",
-    bonusOverview:
-        "https://customer-assets.emergentagent.com/job_alfakids-fonica/artifacts/qy8ory4d_IMG_9460.MOV",
+    bonusOverview: "/videos/bonus.mp4",
 };
 
 /* ---------- Reveal-on-scroll wrapper ---------- */
@@ -114,7 +111,7 @@ const CtaButton = ({ children, testid, size = "lg", pulse = true, className = ""
 );
 
 /* ---------- Inline Video Player ---------- */
-const VideoBlock = ({ src, poster, testid, className = "", caption }) => (
+const VideoBlock = ({ src, testid, className = "", caption }) => (
     <div
         data-testid={testid}
         className={`relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-indigo-100 bg-indigo-950 ${className}`}
@@ -123,14 +120,13 @@ const VideoBlock = ({ src, poster, testid, className = "", caption }) => (
             controls
             playsInline
             preload="metadata"
-            poster={poster}
-            className="w-full h-auto block"
+            className="w-full h-auto block max-h-[70vh] object-contain bg-black"
         >
-            <source src={src} />
+            <source src={src} type="video/mp4" />
             Seu navegador não suporta vídeo HTML5.
         </video>
         {caption && (
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent text-white text-xs md:text-sm font-semibold px-4 py-3 pointer-events-none">
+            <div className="absolute bottom-12 inset-x-0 bg-gradient-to-t from-black/60 to-transparent text-white text-xs md:text-sm font-semibold px-4 py-3 pointer-events-none">
                 {caption}
             </div>
         )}
@@ -165,27 +161,26 @@ const Hero = () => (
         data-testid="hero-section"
         className="relative pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden sparkle-bg"
     >
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center mb-10 md:mb-14">
-            <Reveal>
-                <div className="relative">
-                    <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-purple-300/30 via-pink-200/30 to-indigo-300/30 blur-2xl -z-10" />
-                    <img
-                        src={ASSETS.logo}
-                        alt="Alfakids"
-                        data-testid="brand-logo-hero"
-                        className="w-64 sm:w-80 md:w-96 h-auto drop-shadow-[0_20px_40px_rgba(99,102,241,0.25)] float-slow"
-                    />
-                </div>
-            </Reveal>
-        </div>
-
         <Sparkle className="absolute top-28 left-8 w-6 h-6 text-purple-400 sparkle" />
         <Sparkle
             className="absolute top-40 right-10 w-8 h-8 text-pink-400 sparkle"
             style={{ animationDelay: "0.8s" }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Logo centered */}
+            <Reveal>
+                <div className="flex justify-center mb-8 md:mb-10">
+                    <img
+                        src={ASSETS.logo}
+                        alt="Alfakids"
+                        data-testid="brand-logo-hero"
+                        className="w-56 sm:w-72 md:w-80 h-auto drop-shadow-[0_20px_40px_rgba(99,102,241,0.25)] float-slow"
+                    />
+                </div>
+            </Reveal>
+
+            {/* Top badge */}
             <Reveal>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-indigo-200 shadow-sm mb-6">
                     <Heart className="w-4 h-4 text-pink-500 fill-pink-500" />
@@ -193,23 +188,50 @@ const Hero = () => (
                         Método Alfasonoro™ — exclusivo Alfakids
                     </span>
                 </div>
+            </Reveal>
 
+            {/* Title in 2 lines */}
+            <Reveal delay={1}>
                 <h1
                     data-testid="hero-headline"
                     className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.05] text-indigo-950"
                 >
-                    Seu filho lendo em até{" "}
-                    <span className="rainbow-text">30 dias</span>, de forma leve,
-                    divertida e com o Panda.
+                    <span className="block">
+                        Seu filho lendo em até{" "}
+                        <span className="rainbow-text">30 dias</span>,
+                    </span>
+                    <span className="block mt-1">
+                        de forma leve e divertida com o Panda.
+                    </span>
                 </h1>
+            </Reveal>
 
-                <p className="mt-6 text-lg md:text-xl text-indigo-900/75 font-medium leading-relaxed max-w-xl">
+            {/* Image BELOW the title */}
+            <Reveal delay={2}>
+                <div className="relative mt-10 mb-10 max-w-2xl mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200/40 via-pink-200/30 to-indigo-200/40 rounded-[3rem] blur-3xl -z-10" />
+                    <div className="relative rounded-[2.5rem] overflow-hidden bg-white/60 backdrop-blur border border-white shadow-2xl">
+                        <img
+                            src={ASSETS.heroTransformation}
+                            alt="Antes e depois com o Panda Alfakids"
+                            className="w-full h-auto object-cover float-slow"
+                            data-testid="hero-main-image"
+                        />
+                    </div>
+                </div>
+            </Reveal>
+
+            {/* Subtext + benefits centered */}
+            <Reveal delay={2}>
+                <p className="text-lg md:text-xl text-indigo-900/75 font-medium leading-relaxed max-w-2xl mx-auto">
                     O método fônico que une <strong>som, ritmo e imagem</strong> para
                     alfabetizar crianças de verdade — sem brigas, sem pressão e sem
                     tela que só distrai.
                 </p>
+            </Reveal>
 
-                <ul className="mt-8 space-y-3">
+            <Reveal delay={3}>
+                <ul className="mt-8 space-y-3 inline-block text-left">
                     {[
                         "Plano passo a passo do Dia 1 ao Dia 30",
                         "+100 videoaulas do Panda e biblioteca completa",
@@ -229,16 +251,22 @@ const Hero = () => (
                         </li>
                     ))}
                 </ul>
+            </Reveal>
 
-                <div className="mt-10 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            {/* CTA centered */}
+            <Reveal delay={3}>
+                <div className="mt-10 flex flex-col items-center gap-3">
                     <CtaButton testid="hero-cta-button">Começar por R$ 37</CtaButton>
                     <div className="flex items-center gap-2 text-sm text-indigo-900/70 font-semibold">
                         <ShieldCheck className="w-4 h-4 text-green-700" />
                         Garantia de 7 dias
                     </div>
                 </div>
+            </Reveal>
 
-                <div className="mt-8 flex items-center gap-4">
+            {/* Social proof centered */}
+            <Reveal delay={4}>
+                <div className="mt-8 flex items-center justify-center gap-4">
                     <div className="flex -space-x-2">
                         {["bg-pink-300", "bg-amber-300", "bg-emerald-300", "bg-indigo-300"].map(
                             (c, i) => (
@@ -251,7 +279,7 @@ const Hero = () => (
                             )
                         )}
                     </div>
-                    <div>
+                    <div className="text-left">
                         <div className="flex items-center gap-1">
                             {[...Array(5)].map((_, i) => (
                                 <Star
@@ -263,29 +291,6 @@ const Hero = () => (
                         <p className="text-xs text-indigo-900/70 font-semibold">
                             +8.000 famílias ensinando com o Panda
                         </p>
-                    </div>
-                </div>
-            </Reveal>
-
-            <Reveal delay={2}>
-                <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200/40 via-pink-200/30 to-indigo-200/40 rounded-[3rem] blur-3xl -z-10" />
-                    <div className="relative rounded-[2.5rem] overflow-hidden bg-white/60 backdrop-blur border border-white shadow-2xl">
-                        <img
-                            src={ASSETS.heroTransformation}
-                            alt="Antes e depois com o Panda Alfakids"
-                            className="w-full h-auto object-cover float-slow"
-                            data-testid="hero-main-image"
-                        />
-                    </div>
-                    <div className="absolute -top-2 -right-2 md:-top-4 md:-right-8 bg-white rounded-2xl shadow-xl border border-indigo-100 p-4 flex items-center gap-3 float-slow">
-                        <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
-                            <Volume2 className="w-5 h-5 text-purple-700" />
-                        </div>
-                        <div>
-                            <p className="text-xs font-bold text-indigo-950">Método</p>
-                            <p className="text-lg font-black text-purple-700">Fônico</p>
-                        </div>
                     </div>
                 </div>
             </Reveal>
@@ -490,7 +495,7 @@ const Access = () => {
             ],
         },
         {
-            tag: "6",
+            tag: "5",
             title: "RECURSOS PEDAGÓGICOS COMPLETOS",
             sub: "PDFs prontos para imprimir e atividades práticas.",
             icon: <BookOpen className="w-7 h-7" />,
@@ -671,12 +676,12 @@ const AccessVideo = () => (
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 border border-green-200 mb-4">
                         <Play className="w-4 h-4 text-green-700 fill-green-700" />
                         <span className="text-xs md:text-sm font-black uppercase tracking-widest text-green-800">
-                            Veja o que você libera ainda hoje
+                            Tour pelo aplicativo
                         </span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-950 leading-tight">
-                        Tudo isso fica disponível na{" "}
-                        <span className="rainbow-text">hora da compra</span>.
+                        Veja por dentro do{" "}
+                        <span className="rainbow-text">nosso App</span>.
                     </h2>
                 </div>
             </Reveal>
@@ -807,8 +812,7 @@ const Testimonials = () => {
                             </span>
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-950">
-                            Resultados de verdade,{" "}
-                            <span className="rainbow-text">em casas reais</span>.
+                            <span className="rainbow-text">Resultados</span> Reais
                         </h2>
                     </div>
                 </Reveal>
@@ -1422,9 +1426,9 @@ export default function SalesPage() {
             <Header />
             <main className="pt-20">
                 <Hero />
-                <Transformation />
                 <Access />
                 <AccessVideo />
+                <Transformation />
                 <Methodology />
                 <Testimonials />
                 <ChildReading />
